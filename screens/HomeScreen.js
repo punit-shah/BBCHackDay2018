@@ -7,10 +7,10 @@ const events = [
     name: 'hack day',
   },
   {
-    name: 'generic music festival',
+    name: 'music festival',
   },
   {
-    name: 'boring sport game',
+    name: 'sport game',
   },
 ];
 
