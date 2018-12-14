@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 class ExperienceScreen extends Component {
   static navigationOptions = {
@@ -9,13 +9,9 @@ class ExperienceScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Feed" onPress={() => this.goToFeedScreen()} />
+        <Text style={styles.text}>share your experience 🙃</Text>
       </View>
     );
-  }
-
-  goToFeedScreen() {
-    this.props.navigation.navigate('Feed');
   }
 }
 
@@ -24,6 +20,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text: {
+    fontSize: 20,
   },
 });
 

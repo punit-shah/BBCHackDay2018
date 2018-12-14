@@ -1,6 +1,6 @@
 import {
   createMaterialTopTabNavigator,
-  createSwitchNavigator,
+  createStackNavigator,
   createAppContainer,
 } from 'react-navigation';
 import HomeScreen from './HomeScreen';
@@ -25,7 +25,7 @@ const EventSwitch = createMaterialTopTabNavigator(
 );
 
 export default createAppContainer(
-  createSwitchNavigator(
+  createStackNavigator(
     {
       Home: HomeScreen,
       Event: EventSwitch,
