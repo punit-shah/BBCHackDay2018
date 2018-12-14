@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 class ThoughtScreen extends Component {
-  static navigationOptions = {
-    title: 'Thought',
-  };
-
   render() {
     return (
       <View style={styles.container}>

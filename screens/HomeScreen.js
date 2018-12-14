@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 const events = [
@@ -15,13 +15,10 @@ const events = [
 ];
 
 class HomeScreen extends Component {
-  static navigationOptions = {
-    title: 'Home',
-  };
-
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.text}>choose an event 📅</Text>
         {events.map((event, index) => (
           <Button
             title={event.name}
@@ -43,6 +40,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
+  },
+  text: {
+    fontSize: 20,
   },
 });
 

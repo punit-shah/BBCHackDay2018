@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 class ExperienceScreen extends Component {
-  static navigationOptions = {
-    title: 'Experience',
-  };
-
   render() {
     return (
       <View style={styles.container}>

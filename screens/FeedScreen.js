@@ -3,10 +3,6 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 class FeedScreen extends Component {
-  static navigationOptions = {
-    title: 'Feed',
-  };
-
   render() {
     const event = this.props.navigation.getParam('event');
 

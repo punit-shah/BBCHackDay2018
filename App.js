@@ -3,12 +3,12 @@ import {
   createStackNavigator,
   createAppContainer,
 } from 'react-navigation';
-import HomeScreen from './HomeScreen';
-import FeedScreen from './FeedScreen';
-import ThoughtScreen from './ThoughtScreen';
-import ExperienceScreen from './ExperienceScreen';
+import HomeScreen from './screens/HomeScreen';
+import FeedScreen from './screens/FeedScreen';
+import ThoughtScreen from './screens/ThoughtScreen';
+import ExperienceScreen from './screens/ExperienceScreen';
 
-const EventSwitch = createMaterialTopTabNavigator(
+const EventScreens = createMaterialTopTabNavigator(
   {
     Thought: ThoughtScreen,
     Feed: FeedScreen,
@@ -28,10 +28,14 @@ export default createAppContainer(
   createStackNavigator(
     {
       Home: HomeScreen,
-      Event: EventSwitch,
+      Event: EventScreens,
     },
     {
       initialRouteName: 'Home',
+      headerMode: 'none',
+      defaultNavigationOptions: {
+        gesturesEnabled: false,
+      },
     }
   )
 );
