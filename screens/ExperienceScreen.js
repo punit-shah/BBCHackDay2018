@@ -9,11 +9,6 @@ export default class ExperienceScreen extends Component {
     type: Camera.Constants.Type.back,
   };
 
-  async componentDidMount() {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({ hasCameraPermission: status === 'granted' });
-  }
-
   render() {
     const { hasCameraPermission } = this.state;
 
@@ -24,7 +19,13 @@ export default class ExperienceScreen extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type}>
+          <Camera
+            style={{ flex: 1 }}
+            type={this.state.type}
+            ref={ref => {
+              this.camera = ref;
+            }}
+          >
             <View
               style={{
                 flex: 1,
@@ -48,7 +49,6 @@ export default class ExperienceScreen extends Component {
                   alignSelf: 'flex-end',
                   alignItems: 'center',
                 }}
-                onPress={this.takePicture.bind(this)}
               >
                 <Icons.MaterialCommunityIcons
                   name="camera-iris"
@@ -83,20 +83,4 @@ export default class ExperienceScreen extends Component {
       );
     }
   }
-
-  takePicture = async function() {
-    if (this.camera) {
-      const options = { quality: 0.5, base64: true };
-      const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
-    }
-  };
-
-  onPictureSaved = async photo => {
-    await React.FileSystem.moveAsync({
-      from: photo.uri,
-      to: `${FileSystem.documentDirectory}photos/${Date.now()}.jpg`,
-    });
-    this.setState({ newPhotos: true });
-  };
 }
