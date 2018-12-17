@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Post from '../components/Post';
 
@@ -7,9 +7,32 @@ class FeedScreen extends Component {
   render() {
     const event = this.props.navigation.getParam('event');
 
-    const posts = event.posts.map((post, index) => (
-      <Post user={post.user} type={post.type} key={index} />
-    ));
+    // const posts = event.posts.map((post, index) => (
+    //   <Post
+    //     user={post.user}
+    //     type={post.type}
+    //     imageLocator={post.data.locator}
+    //     imageCaption={post.data.caption}
+    //     textContent={post.data.content}
+    //     key={index}
+    //   />
+    // ));
+    const posts = (
+      <FlatList
+        data={event.posts}
+        renderItem={({ item, index }) => (
+          <Post
+            user={item.user}
+            type={item.type}
+            imageLocator={item.data.locator}
+            imageCaption={item.data.caption}
+            textContent={item.data.content}
+            key={index}
+          />
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    );
 
     return (
       <View style={styles.container}>
@@ -54,10 +77,12 @@ const styles = StyleSheet.create({
   },
   eventTitle: {
     fontSize: 26,
-    padding: 20,
-    paddingTop: 40,
-    borderWidth: 1,
-    borderColor: colors.grey,
+    paddingTop: 35,
+    paddingRight: 10,
+    paddingBottom: 15,
+    paddingLeft: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.grey,
   },
 });
 

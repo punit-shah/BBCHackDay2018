@@ -7,10 +7,10 @@ const events = [
     name: 'hack day',
     posts: [
       {
-        type: 'photo',
+        type: 'image',
         user: 'User 1',
         data: {
-          locator: '/img/hack_day/post0.jpg',
+          locator: 'image0',
           caption: 'Caption',
         },
       },
@@ -18,7 +18,29 @@ const events = [
         type: 'text',
         user: 'User 2',
         data: {
-          content: 'Hack day is going great',
+          content: 'Hack day is going great!',
+        },
+      },
+      {
+        type: 'image',
+        user: 'User 1',
+        data: {
+          locator: 'image1',
+          caption: 'Caption',
+        },
+      },
+      {
+        type: 'text',
+        user: 'User 2',
+        data: {
+          content: 'Hack day is going great!',
+        },
+      },
+      {
+        type: 'text',
+        user: 'User 2',
+        data: {
+          content: 'Hack day is going great!',
         },
       },
     ],
