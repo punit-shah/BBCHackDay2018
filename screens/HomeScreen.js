@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import Header from '../components/Header';
 
 const events = [
   {
@@ -18,6 +19,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header searchButton />
         <Text style={styles.text}>choose an event 📅</Text>
         {events.map((event, index) => (
           <Button
