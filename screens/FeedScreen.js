@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Post from '../components/Post';
+import Header from '../components/Header';
 
 class FeedScreen extends Component {
   render() {
@@ -26,6 +27,7 @@ class FeedScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Header />
         <Text style={styles.eventTitle}>{event.name}</Text>
         {posts}
         {/* <Button
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
   },
   eventTitle: {
     fontSize: 26,
-    paddingTop: 35,
+    paddingTop: 15,
     paddingRight: 10,
     paddingBottom: 15,
     paddingLeft: 10,
