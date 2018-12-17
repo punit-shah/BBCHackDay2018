@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 import images from '../images';
 
-class Post extends Component {
-  render() {
-    const { user, type, textContent, imageLocator } = this.props;
+const Post = ({ user, type, textContent, imageLocator, imageCaption }) => {
+  const postUser = (
+    <View style={styles.user}>
+      <View style={styles.userImage} />
+      <Text style={styles.userName}>{user}</Text>
+    </View>
+  );
 
-    const postUser = (
-      <View style={styles.user}>
-        <View style={styles.userImage} />
-        <Text style={styles.userName}>{user}</Text>
-      </View>
-    );
-
-    const postContent = {
-      image: (
+  const postContent = {
+    image: (
+      <View>
         <View style={styles.imagePost}>
           <Image
             style={styles.imageContent}
@@ -23,22 +21,23 @@ class Post extends Component {
             resizeMode="contain"
           />
         </View>
-      ),
-      text: (
-        <View style={styles.text}>
-          <Text style={styles.textContent}>{textContent}</Text>
-        </View>
-      ),
-    };
-
-    return (
-      <View style={styles.container}>
-        {postUser}
-        {postContent[type]}
+        <Text style={styles.imageCaption}>{imageCaption}</Text>
       </View>
-    );
-  }
-}
+    ),
+    text: (
+      <View style={styles.textPost}>
+        <Text style={styles.textContent}>{textContent}</Text>
+      </View>
+    ),
+  };
+
+  return (
+    <View style={styles.container}>
+      {postUser}
+      {postContent[type]}
+    </View>
+  );
+};
 
 Post.propTypes = {
   user: PropTypes.string.isRequired,
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   user: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 10,
+    padding: 10,
   },
   userImage: {
     height: 30,
@@ -82,10 +81,16 @@ const styles = StyleSheet.create({
     flex: 1,
     height: undefined,
     width: undefined,
+    backgroundColor: colors.grey,
   },
-  text: {
-    margin: 10,
-    marginTop: 0,
+  imageCaption: {
+    padding: 10,
+    fontSize: 16,
+  },
+  textPost: {
+    padding: 10,
+    paddingTop: 0,
+    paddingBottom: 20,
   },
   textContent: {
     fontSize: 18,
