@@ -4,29 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import StatusBarBackground from '../components/StatusBarBackground';
 import EventPanel from '../components/EventPanel';
-
-const events = [
-  {
-    name: 'Grad Hack 2k18',
-    image: 'gradhack',
-  },
-  {
-    name: 'Olympic Swimming',
-    image: 'swimming',
-  },
-  {
-    name: 'Notting Hill Carnival',
-    image: 'carnival',
-  },
-  {
-    name: 'Football',
-    image: 'football',
-  },
-  {
-    name: 'Radio 1 Live Lounge',
-    image: 'concert',
-  },
-];
+import events from '../events';
 
 const styleColors = {
   white: '#fff',
