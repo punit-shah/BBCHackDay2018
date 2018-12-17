@@ -9,6 +9,11 @@ export default class ExperienceScreen extends Component {
     type: Camera.Constants.Type.back,
   };
 
+  async componentDidMount() {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasCameraPermission: status === 'granted' });
+  }
+
   render() {
     const { hasCameraPermission } = this.state;
 
@@ -49,6 +54,7 @@ export default class ExperienceScreen extends Component {
                   alignSelf: 'flex-end',
                   alignItems: 'center',
                 }}
+                onPress={this.snap}
               >
                 <Icons.MaterialCommunityIcons
                   name="camera-iris"
@@ -83,4 +89,13 @@ export default class ExperienceScreen extends Component {
       );
     }
   }
+
+  snap = async () => {
+    if (this.camera) {
+      let photo = await this.camera.takePictureAsync();
+
+      this.renderImage(photo.uri);
+    }
+    alert(this.camera);
+  };
 }
