@@ -5,6 +5,23 @@ import PropTypes from 'prop-types';
 const events = [
   {
     name: 'hack day',
+    posts: [
+      {
+        type: 'photo',
+        user: 'User 1',
+        data: {
+          locator: '/img/hack_day/post0.jpg',
+          caption: 'Caption',
+        },
+      },
+      {
+        type: 'text',
+        user: 'User 2',
+        data: {
+          content: 'Hack day is going great',
+        },
+      },
+    ],
   },
   {
     name: 'music festival',
