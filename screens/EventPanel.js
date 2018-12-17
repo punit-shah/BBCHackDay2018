@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
-import { View, Button, Image } from 'react-native';
+import { TouchableHighlight, View, Button, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import images from '../images';
 import { vw } from 'react-native-expo-viewport-units';
 
+const colours = {
+  white: '#fff',
+  darkGrey: '#555',
+};
+
 const styles = {
   flexParent: {
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
   },
   eventButton: {
     padding: 1,
     margin: 0.5,
     maxWidth: vw(40),
+    backgroundColor: colours.darkGrey,
+    color: colours.white,
   },
   eventImage: {
     maxWidth: vw(50),
@@ -23,20 +31,22 @@ const styles = {
 class EventPanel extends Component {
   render() {
     return (
-      <View
+      <TouchableHighlight
         style={styles.flexParent}
         onPress={() => this.goToFeedScreen(this.props.buttonEvent)}
       >
-        <Image
-          source={images[this.props.imageLocation]}
-          style={styles.eventImage}
-        />
-        <Button
-          style={styles.eventButton}
-          title={this.props.buttonTitle}
-          onPress={() => this.goToFeedScreen(this.props.buttonEvent)}
-        />
-      </View>
+        <View>
+          <Image
+            source={images[this.props.imageLocation]}
+            style={styles.eventImage}
+          />
+          <Button
+            style={styles.eventButton}
+            title={this.props.buttonTitle}
+            onPress={() => this.goToFeedScreen(this.props.buttonEvent)}
+          />
+        </View>
+      </TouchableHighlight>
     );
   }
 

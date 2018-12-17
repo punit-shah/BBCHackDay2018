@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { vw } from 'react-native-expo-viewport-units';
 import StatusBarBackground from './StatusBarBackground';
@@ -37,7 +37,7 @@ const styleColors = {
 class HomeScreen extends Component {
   render() {
     return (
-      <View>
+      <ScrollView>
         <StatusBarBackground />
         <View>
           <View style={styles.header}>
@@ -56,17 +56,14 @@ class HomeScreen extends Component {
             ))}
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   flexContainer: {
-    display: 'flex',
     margin: 1,
-    flex: -1,
-    flexWrap: 'wrap',
   },
   header: {
     width: vw(100),
