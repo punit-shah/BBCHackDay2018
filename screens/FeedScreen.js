@@ -1,15 +1,36 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import Post from '../components/Post';
+import Header from '../components/Header';
 
 class FeedScreen extends Component {
   render() {
     const event = this.props.navigation.getParam('event');
 
+    const posts = (
+      <FlatList
+        data={event.posts}
+        renderItem={({ item, index }) => (
+          <Post
+            user={item.user}
+            type={item.type}
+            imageLocator={item.data.locator}
+            imageCaption={item.data.caption}
+            textContent={item.data.content}
+            key={index}
+          />
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    );
+
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>welcome to {event.name}</Text>
-        <Button
+        <Header />
+        <Text style={styles.eventTitle}>{event.name}</Text>
+        {posts}
+        {/* <Button
           title="share your thoughts"
           onPress={() => this.goToThoughtScreen()}
         />
@@ -20,7 +41,7 @@ class FeedScreen extends Component {
         <Button
           title="choose another event"
           onPress={() => this.goToHomeScreen()}
-        />
+        /> */}
       </View>
     );
   }
@@ -38,14 +59,22 @@ class FeedScreen extends Component {
   }
 }
 
+const colors = {
+  grey: '#eee',
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
   },
-  welcome: {
-    fontSize: 20,
+  eventTitle: {
+    fontSize: 26,
+    paddingTop: 15,
+    paddingRight: 10,
+    paddingBottom: 15,
+    paddingLeft: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.grey,
   },
 });
 

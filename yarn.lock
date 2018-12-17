@@ -4920,6 +4920,12 @@ react-native-expo-viewport-units@^0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/react-native-expo-viewport-units/-/react-native-expo-viewport-units-0.0.8.tgz#13d9bcb3e95abcc55f800cfa5f3e4b571860e726"
   integrity sha512-duAEaoVF41puhXhpI1BuDFc2AMBqfWT2S74EJqaQ5dnuZVhsP++AExJwVo7/2/lHmb6+gYWGyBZOxxPCMWe+Ew==
+react-native-camera@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-1.6.3.tgz#c2deb02f9706720e3ae6fc1863f0702e1f248f13"
+  integrity sha512-j+uK3osT0womUv+9+bTWEfdNZW2pq9QKOrCuRdK/DMRneS+78YEwzKlEYKz9E6zAgCVTeLD0MsvmYNLZWt5/ow==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-native-gesture-handler@1.0.9:
   version "1.0.9"
