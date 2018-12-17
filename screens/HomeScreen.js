@@ -1,37 +1,51 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import Header from '../components/Header';
+import StatusBarBackground from '../components/StatusBarBackground';
+import EventPanel from '../components/EventPanel';
 import events from '../events';
+
+const styleColors = {
+  white: '#fff',
+  aGoodPurple: '#4D2C7A',
+  black: '#000',
+};
 
 class HomeScreen extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>choose an event 📅</Text>
-        {events.map((event, index) => (
-          <Button
-            title={event.name}
-            onPress={() => this.goToFeedScreen(event)}
-            key={index}
-          />
-        ))}
-      </View>
+      <ScrollView>
+        <StatusBarBackground />
+        <View>
+          <Header />
+          <Text style={styles.textBlack}>choose an event 📅</Text>
+          <View style={styles.flexContainer}>
+            {events.map((event, index) => (
+              <EventPanel
+                imageLocation={event.image}
+                buttonTitle={event.name}
+                key={index}
+                buttonEvent={event}
+                navigation={this.props.navigation}
+              />
+            ))}
+          </View>
+        </View>
+      </ScrollView>
     );
-  }
-
-  goToFeedScreen(event) {
-    this.props.navigation.navigate('Feed', { event });
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
+  flexContainer: {
+    margin: 1,
   },
-  text: {
+  textBlack: {
     fontSize: 20,
+    margin: 5,
+    textAlign: 'center',
+    color: styleColors.black,
   },
 });
 

@@ -1,6 +1,7 @@
 export default [
   {
     name: 'hack day',
+    image: 'gradhack',
     posts: [
       {
         type: 'image',
@@ -43,6 +44,7 @@ export default [
   },
   {
     name: 'music festival',
+    image: 'festival',
     posts: [
       {
         type: 'image',
@@ -85,6 +87,7 @@ export default [
   },
   {
     name: 'sport game',
+    image: 'football',
     posts: [
       {
         type: 'image',
