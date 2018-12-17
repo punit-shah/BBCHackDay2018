@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-
-const events = [
-  {
-    name: 'hack day',
-  },
-  {
-    name: 'music festival',
-  },
-  {
-    name: 'sport game',
-  },
-];
+import events from '../events';
 
 class HomeScreen extends Component {
   render() {
