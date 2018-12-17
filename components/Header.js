@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, StatusBar, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import images from '../images';
-import Svg, { Path } from 'react-native-svg';
+//import Svg, { Path } from 'react-native-svg';
 
 const Header = ({ searchButton }) => (
   <View
