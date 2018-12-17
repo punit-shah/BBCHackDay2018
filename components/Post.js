@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   imagePost: {
     width: '100%',
-    minHeight: Dimensions.get('window').width,
+    minHeight: Dimensions.get('window').width / 1.78,
     backgroundColor: colors.grey,
   },
   imageContent: {
