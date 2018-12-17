@@ -11,13 +11,14 @@ export const styles = StyleSheet.create({
   thoughtsInput: {
     fontSize: 30,
     width: vw(90),
-    height: vh(50),
+    height: vh(40),
     backgroundColor: 'white',
     borderWidth: 1,
     padding: 20,
     borderColor: '#d4d4d4',
     borderRadius: 8,
     color: '#222',
-    marginTop: vh(4),
+    position: 'absolute',
+    top: vh(5),
   },
 });
