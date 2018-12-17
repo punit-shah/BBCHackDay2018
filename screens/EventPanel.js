@@ -6,16 +6,16 @@ import { vw } from 'react-native-expo-viewport-units';
 
 const styles = {
   flexParent: {
-    margin: 'auto',
     alignItems: 'flex-start',
+    flexDirection: 'column',
   },
   eventButton: {
     padding: 1,
     margin: 0.5,
-    width: vw(50),
+    maxWidth: vw(40),
   },
   eventImage: {
-    width: vw(50),
+    maxWidth: vw(50),
     height: 100,
   },
 };
@@ -23,7 +23,10 @@ const styles = {
 class EventPanel extends Component {
   render() {
     return (
-      <View style={styles.flexParent}>
+      <View
+        style={styles.flexParent}
+        onPress={() => this.goToFeedScreen(this.props.buttonEvent)}
+      >
         <Image
           source={images[this.props.imageLocation]}
           style={styles.eventImage}

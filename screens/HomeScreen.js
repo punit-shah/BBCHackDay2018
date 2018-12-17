@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
     margin: 1,
-    flexDirection: 'row',
+    flex: -1,
     flexWrap: 'wrap',
   },
   header: {
