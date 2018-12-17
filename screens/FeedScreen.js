@@ -7,16 +7,6 @@ class FeedScreen extends Component {
   render() {
     const event = this.props.navigation.getParam('event');
 
-    // const posts = event.posts.map((post, index) => (
-    //   <Post
-    //     user={post.user}
-    //     type={post.type}
-    //     imageLocator={post.data.locator}
-    //     imageCaption={post.data.caption}
-    //     textContent={post.data.content}
-    //     key={index}
-    //   />
-    // ));
     const posts = (
       <FlatList
         data={event.posts}
