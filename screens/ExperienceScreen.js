@@ -54,7 +54,6 @@ export default class ExperienceScreen extends Component {
                   alignSelf: 'flex-end',
                   alignItems: 'center',
                 }}
-                onPress={this.snap}
               >
                 <Icons.MaterialCommunityIcons
                   name="camera-iris"
@@ -89,13 +88,4 @@ export default class ExperienceScreen extends Component {
       );
     }
   }
-
-  snap = async () => {
-    if (this.camera) {
-      let photo = await this.camera.takePictureAsync();
-
-      this.renderImage(photo.uri);
-    }
-    alert(this.camera);
-  };
 }
