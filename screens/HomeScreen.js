@@ -1,57 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-
-const events = [
-  {
-    name: 'hack day',
-    posts: [
-      {
-        type: 'image',
-        user: 'User 1',
-        data: {
-          locator: 'image0',
-          caption: 'Caption',
-        },
-      },
-      {
-        type: 'text',
-        user: 'User 2',
-        data: {
-          content: 'Hack day is going great!',
-        },
-      },
-      {
-        type: 'image',
-        user: 'User 1',
-        data: {
-          locator: 'image1',
-          caption: 'Caption',
-        },
-      },
-      {
-        type: 'text',
-        user: 'User 2',
-        data: {
-          content: 'Hack day is going great!',
-        },
-      },
-      {
-        type: 'text',
-        user: 'User 2',
-        data: {
-          content: 'Hack day is going great!',
-        },
-      },
-    ],
-  },
-  {
-    name: 'music festival',
-  },
-  {
-    name: 'sport game',
-  },
-];
+import events from '../events';
 
 class HomeScreen extends Component {
   render() {
