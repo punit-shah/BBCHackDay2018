@@ -44,7 +44,7 @@ export default [
   },
   {
     name: 'music festival',
-    image: 'festival',
+    image: 'concert',
     posts: [
       {
         type: 'image',
