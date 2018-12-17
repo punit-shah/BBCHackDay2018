@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import { vw } from 'react-native-expo-viewport-units';
-import StatusBarBackground from './StatusBarBackground';
-import EventPanel from './EventPanel';
+import Header from '../components/Header';
+import StatusBarBackground from '../components/StatusBarBackground';
+import EventPanel from '../components/EventPanel';
 
 const events = [
   {
@@ -40,9 +40,7 @@ class HomeScreen extends Component {
       <ScrollView>
         <StatusBarBackground />
         <View>
-          <View style={styles.header}>
-            <Text style={styles.textWhite}>BBC Events</Text>
-          </View>
+          <Header />
           <Text style={styles.textBlack}>choose an event 📅</Text>
           <View style={styles.flexContainer}>
             {events.map((event, index) => (
@@ -64,17 +62,6 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
   flexContainer: {
     margin: 1,
-  },
-  header: {
-    width: vw(100),
-    backgroundColor: styleColors.aGoodPurple,
-    padding: 1,
-  },
-  textWhite: {
-    fontSize: 20,
-    margin: 5,
-    textAlign: 'center',
-    color: styleColors.white,
   },
   textBlack: {
     fontSize: 20,

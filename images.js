@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+  bbc: require('./img/bbc.png'),
   gradhack: require('./assets/gradhack.jpg'),
   football: require('./assets/football.jpg'),
   carnival: require('./assets/carnival.jpg'),
