@@ -3,27 +3,26 @@ import { View, Text, Image, StatusBar, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import SearchButton from './SearchButton';
 import images from '../images';
+import colors from '../colors';
+import BackButton from './BackButton';
 
-const Header = ({ searchButton }) => (
+const Header = ({ searchButton, backButton }) => (
   <View
     style={[
       styles.header,
-      { justifyContent: searchButton ? 'space-between' : 'center' },
+      {
+        justifyContent: searchButton || backButton ? 'space-between' : 'center',
+      },
     ]}
   >
-    <View style={styles.leftPad} />
+    {backButton ? <BackButton /> : <View style={styles.empty} />}
     <Text style={styles.headerText}>
       <Image style={styles.logo} source={images.bbc} resizeMode="contain" />{' '}
       Events
     </Text>
-    {searchButton && <SearchButton />}
+    {searchButton ? <SearchButton /> : <View style={styles.empty} />}
   </View>
 );
-
-const colors = {
-  purple: '#4D2C7A',
-  white: '#fff',
-};
 
 const styles = StyleSheet.create({
   header: {
@@ -45,7 +44,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20 * 3.49,
   },
-  leftPad: {
+  empty: {
     width: 20,
     height: 20,
   },
@@ -53,6 +52,7 @@ const styles = StyleSheet.create({
 
 Header.propTypes = {
   searchButton: PropTypes.bool,
+  backButton: PropTypes.bool,
 };
 
 export default Header;

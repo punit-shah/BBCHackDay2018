@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Post from '../components/Post';
 import Header from '../components/Header';
+import colors from '../colors';
 
 class FeedScreen extends Component {
   render() {
@@ -27,7 +28,7 @@ class FeedScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Header />
+        <Header backButton />
         <Text style={styles.eventTitle}>{event.name}</Text>
         {posts}
         {/* <Button
@@ -58,10 +59,6 @@ class FeedScreen extends Component {
     this.props.navigation.navigate('Home');
   }
 }
-
-const colors = {
-  grey: '#eee',
-};
 
 const styles = StyleSheet.create({
   container: {
