@@ -15,7 +15,11 @@ const Header = ({ searchButton, backButton }) => (
       },
     ]}
   >
-    {backButton ? <BackButton /> : <View style={styles.empty} />}
+    {backButton ? (
+      <BackButton onPress={backButton} />
+    ) : (
+      <View style={styles.empty} />
+    )}
     <Text style={styles.headerText}>
       <Image style={styles.logo} source={images.bbc} resizeMode="contain" />{' '}
       Events
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
 
 Header.propTypes = {
   searchButton: PropTypes.bool,
-  backButton: PropTypes.bool,
+  backButton: PropTypes.func,
 };
 
 export default Header;

@@ -28,7 +28,7 @@ class FeedScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Header backButton />
+        <Header backButton={() => this.goToHomeScreen()} />
         <Text style={styles.eventTitle}>{event.name}</Text>
         {posts}
         {/* <Button
