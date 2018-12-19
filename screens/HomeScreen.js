@@ -18,7 +18,7 @@ class HomeScreen extends Component {
       <ScrollView>
         <StatusBarBackground />
         <View>
-          <Header />
+          <Header searchButton />
           <Text style={styles.textBlack}>choose an event 📅</Text>
           <View style={styles.flexContainer}>
             {events.map((event, index) => (
